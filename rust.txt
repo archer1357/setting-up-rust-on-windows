@@ -1,0 +1,10 @@
+sudo pacman -S --needed grep gcc pkgconfig openssl alsa-lib cmake make python3 freetype2 awk libxcb  rustup
+
+rustup default stable
+
+cargo install amethyst_tools
+
+~/.cargo/bin/amethyst new aosr
+cargo new --bin aosp
+cargo rustc --release -- -Clink-args="-Wl,--subsystem,windows"
+cargo rustc --bin hello_world --release -- -Clink-args="/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup"
